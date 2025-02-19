@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Propriedades CSS</title>
+    <style>
+        * {
+            box-sizing: border-box; /* Aplica box-sizing para todos os elementos */
+        }
+
+        .container {
+            display: flex; /* Organiza os elementos em linha */
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            border: 2px solid black;
+            margin: 20px;
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            padding: 20px; /* Espaço interno */
+            border: 3px solid blue; /* Borda */
+            margin: 10px; /* Espaço externo */
+            text-align: center;
+            background-color: lightgray;
+        }
+
+        .relative {
+            position: relative; /* Posicionado em relação ao seu local original */
+            top: 10px;
+            left: 10px;
+        }
+
+        .absolute {
+            position: absolute; /* Posicionado em relação ao primeiro elemento ancestral com position diferente de static */
+            top: 50px;
+            right: 20px;
+        }
+
+        .fixed {
+            position: fixed; /* Fixo na tela */
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            padding: 10px;
+        }
+
+        .sticky {
+            position: sticky; /* Fica fixo ao rolar até certo ponto */
+            top: 0;
+            background-color: green;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sticky">Posição Sticky</div>
+    <div class="container">
+        <div class="box relative">Relative</div>
+        <div class="box absolute">Absolute</div>
+        <div class="box">Normal</div>
+    </div>
+    <div class="fixed">Posição Fixed</div>
+</body>
+</html>
