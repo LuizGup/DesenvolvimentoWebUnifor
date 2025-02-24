@@ -33,11 +33,20 @@
             top: 10px;
             left: 10px;
         }
+        .cabecalho{
+            position:relative;
+            top: 10px;
+            margin: 50px;
+        }
 
         .absolute {
-            position: absolute; /* Posicionado em relação ao primeiro elemento ancestral com position diferente de static */
-            top: 50px;
-            right: 20px;
+            background: #c590f5;
+            height: 50px;
+            width: 120px;
+            position: absolute;
+            top: 35px;
+            left: 10px;
+            z-index: 10;
         }
 
         .fixed {
@@ -47,6 +56,7 @@
             background-color: red;
             color: white;
             padding: 10px;
+            z-index:11;
         }
 
         .sticky {
@@ -55,16 +65,29 @@
             background-color: green;
             color: white;
             padding: 10px;
+            z-index: 10;
         }
     </style>
 </head>
 <body>
     <div class="sticky">Posição Sticky</div>
+    <div class="cabecalho">
+        <h1>Exemplo de Propriedades CSS</h1>
+    </div>
+    
     <div class="container">
         <div class="box relative">Relative</div>
         <div class="box absolute">Absolute</div>
         <div class="box">Normal</div>
     </div>
-    <div class="fixed">Posição Fixed</div>
+    
+    
+    <div> 
+        <p>Posição Relative: O elemento é posicionado em relação ao seu local original.</p>
+        <p>Posição Absolute: O elemento é posicionado em relação ao primeiro elemento ancestral com position diferente de static.</p>
+        <p>Posição Fixed: O elemento é fixo na tela.</p>
+        <p>Posição Sticky: O elemento é fixo ao rolar até certo ponto.</p>    
+    </div>
+    <!-- <div class="fixed">Posição Fixed</div> -->
 </body>
 </html>
