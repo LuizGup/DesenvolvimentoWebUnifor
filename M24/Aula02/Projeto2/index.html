@@ -5,87 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site Simples</title>
     <!-- <link rel="stylesheet" href="styles.css"> -->
-    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
     <style>
         /*TAG */
-        /*
         html, body{
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            font-size: 16px;
-            background-color: #f0f0f0;
-        }
-
-        h1{
-            color: blue;
-            text-align: center;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            font-size: 20px;
-        }
-
-        a{
-            text-decoration: none;
-            color: black;
-        }
-
-        p{
-            font-family: 'Arial', sans-serif;
-            font-size: 20px;
-         
-        }
-        /*ID */
-        /* #titulo-principal{
-            color: red;
-            font-size: 30px;
-        }
-        #titulo-conteudo{
-            color: green;
-        }
-
-        #link1{
-            color:blueviolet;
-            font-size: 2rem;
-        } */
-
-        /*CLASSE */
-        /*
-        .cabecalho{
-            background-color: #903434;
-            padding: 10px;
-            text-align: center;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             
         }
-        .conteudo{
-            background-color: #c04c4c;
-            color: rgb(198, 57, 57);
-            padding: 20px;
-            margin: 20px;
+        /* CLASSE */
+        .cabecalho{
+            background-color: rgb(136, 146, 146);
+            text-align: center;
+            padding: 12px;
+        }
+
+        #titulo-principal{
+            color: aliceblue;
+    
+        }
+
+        .menu-lista{
+            list-style:none;
+        }
+
+        nav ul li a{
+            text-decoration: none;
+            color: aliceblue;
+        }
+
+        nav ul li{
+            background-color: rgb(191, 202, 212);
+            margin: 12px;
+            padding: 10px 20px;
+            display: inline-block;
             border-radius: 10px;
-            color: white;
-        } */
+        }
 
+        nav ul li:hover{
+            background-color: chartreuse;
 
+        }
 
+        .menu #menu-lista li {
+            background-color: black;
+        }
+        .container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 21px;
+
+        }
+        .box{
+            display: inline;
+            background-color: aquamarine;
+            padding: 20px;
+            border: 2px solid red ;
+            border-radius: 10px;
+            
+            
+        }
+        .box:hover{
+            background-color: rgb(126, 161, 149);
+        }
+        .box-logo{
+            background-color: bisque;
+            padding: 1rem;
+            border: 2px solid red;
+        }
     </style>
 </head>
 <body>
     <!-- Cabeçalho -->
-    <header id="cabecalho">
-        <h1 id="titulo-principal">Título do Curso de PHP</h1>
-        <h2>Subtítulo do Curso de PHP</h2>
-        <p>Este é um exemplo de site básico usando apenas HTML e CSS.</p>
+    <header class="cabecalho">
+        <h1 id="titulo-principal">Curso de PHP</h1>
+
         <!-- Menu de navegação -->
+        <nav class="menu">
+            <ul class="menu-lista">
+                <li id="item1"><a id="link1" href="#">Início</a></li>
+                <li><a id="link2" href="#">Projetos</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>        
     </header>
     
-    <nav class="menu">
-        <ul class="menu-lista">
-            <li id="item1"><a id="link1" href="#">Início</a></li>
-            <li><a id="link2" href="#">Projetos</a></li>
-            <li><a href="#">Contato</a></li>
-        </ul>
-    </nav>
+    <div class="container">
+        <div class="box-logo">Logo</div>
+        <nav class="menu-novo">
+            <div class="box">Box 1</div>
+            <div class="box">Box 2</div>
+            <div class="box">Box 3</div>
+            <div class="box">Box 4</div>
+        </nav>
+    </div>
 
+
+    
+    <div class="conteudo-principal">
     <!-- Conteúdo principal -->
         <section class="conteudo">            
             <h1>Texto de Título do Conteúdo </h1>
@@ -94,21 +113,11 @@
             <p>Você pode modificar o conteúdo conforme necessário.</p>
             <label for="nome">Nome:</label>
             
-            <input type="text" 
-            name="nome" 
-            id="nome"
-            class="input-text" 
-            >
+            
         </section>
-        <div class="container">
-            <div class="box">Logo</div>
-            <nav class="menu-novo">
-                <div class="box">Box 1</div>
-                <div class="box">Box 2</div>
-                <div class="box">Box 3</div>
-                <div class="box">Box 4</div>
-            </nav>
-        </div>
+        
+
+    </div>
 
             
         
@@ -130,7 +139,9 @@
         <main>Main</main>
         <footer>Footer</footer>
     </div>
-
+    <input type="number" name="nome" 
+            id="nome"
+            class="input-text" >
     
 
     <!-- Rodapé -->
