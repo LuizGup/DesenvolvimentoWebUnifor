@@ -2,8 +2,11 @@
 import Agendamento from '../models/Agendamento.js';
 
 export const listarAgendamentos = async (req, res) => {
-  const agendamentos = await Agendamento.find();
-  res.json(agendamentos);
+  // const agendamentos = await Agendamento.find();
+  // res.json(agendamentos);
+  res.send([{nome:"teste1", tipo:2}, {nome:"teste2", tipo:3}])
+
+  
 };
 
 export const criarAgendamento = async (req, res) => {
