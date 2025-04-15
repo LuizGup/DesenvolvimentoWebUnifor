@@ -13,7 +13,10 @@ import {listarUsers} from '../controllers/UsersController.js';
  
 const router = express.Router();
 
-router.get('/users', listarUsers);
+
+
+
+// router.get('/users', listarUsers);
 
 router.get('/listaag', listarAgendamentos);
 router.get('/listaId/:id', obterAgendamento);

@@ -2,9 +2,10 @@
 import mongoose from 'mongoose';
 
 const agendamentoSchema = new mongoose.Schema({
-  nome: {type: String, required:true},
   data: {type: String, required:true},
-  horario:{ type: String, required:true, unique:true},
+  hora:{ type: String, required:true},
+  usuarioId: {type: String, required:true, unique:true},
+  status: {type:String, required:true}, 
 });
 
 export default mongoose.model('Agendamento', agendamentoSchema);
