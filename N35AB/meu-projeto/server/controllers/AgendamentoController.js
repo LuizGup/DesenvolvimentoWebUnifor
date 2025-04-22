@@ -1,30 +1,30 @@
 // server/controllers/AgendamentoController.js
 import Agendamento from '../models/Agendamento.js';
 
-const agendamentos = [
-  { id: 1, data: '2023-11-10', hora: '14:00', status: 'ativo', usuarioId: 10 },
-  { id: 2, data: '2023-11-12', hora: '09:00', status: 'concluido', usuarioId: 11 },
-  { id: 3, data: '2023-11-15', hora: '16:30', status: 'ativo', usuarioId: 12 },
-];
+// const agendamentos = [
+//   { id: 1, data: '2023-11-10', hora: '14:00', status: 'ativo', usuarioId: 10 },
+//   { id: 2, data: '2023-11-12', hora: '09:00', status: 'concluido', usuarioId: 11 },
+//   { id: 3, data: '2023-11-15', hora: '16:30', status: 'ativo', usuarioId: 12 },
+// ];
 
 export const listarAgendamentos = async (req, res) => {
-  // const agendamentos = await Agendamento.find();
-  // res.json(agendamentos);
-  res.send(agendamentos);
-
-  
+  const agendamentos = await Agendamento.find();
+  res.json(agendamentos);
 };
 
 export const criarAgendamento = async (req, res) => {
-  const { data, hora, status, usuarioId } = req.body;
+  const { data, hora, status, usuarioId, name } = req.body;
   console.log(req.body)
-  // const novo = new Agendamento({ data, hora, status, usuarioId  });
-  // await novo.save();
-  // res.status(201).json(novo);
-
-  res.send(`Data:${data} - Hora:${hora} `)
-
+  const novo = new Agendamento({ data, hora, status, usuarioId, name });
+  await novo.save();
+  res.status(201).json(novo);
 };
+
+// "data": "2023-11-10",
+// "hora": "14:00",
+// "status": "ativo",
+// "usuarioId": "1023"
+
 
 export const obterAgendamento = async (req, res) => {
   // const ag = await Agendamento.findById(req.params.id);

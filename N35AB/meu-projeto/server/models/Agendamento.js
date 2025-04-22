@@ -6,13 +6,10 @@ const agendamentoSchema = new mongoose.Schema({
   hora:{ type: String, required:true},
   usuarioId: {type: String, required:true, unique:true},
   status: {type:String, required:true}, 
+  name: {type:String, required:true}
 });
 
 export default mongoose.model('Agendamento', agendamentoSchema);
-
-
-
-
 
 
 /**

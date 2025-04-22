@@ -17,11 +17,11 @@ const router = express.Router();
 
 // router.get('/users', listarUsers);
 
-router.get('/listaag', listarAgendamentos);
+router.get('/listarAg', listarAgendamentos);
 router.get('/listaId/:id', obterAgendamento);
-router.post('/createAg', criarAgendamento);
+router.post('/criarAg', criarAgendamento);
 router.put('/:id', atualizarAgendamento);
-router.delete('/:id', deletarAgendamento);
+router.delete('/excluirAg/:id', deletarAgendamento);
 
 router.get('/listarparametros', listarparametros);
 // Rota inválida dentro de /agendamento/*
