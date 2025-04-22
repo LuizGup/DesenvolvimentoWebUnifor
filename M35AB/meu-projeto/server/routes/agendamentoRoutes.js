@@ -6,7 +6,8 @@ import {
   obterAgendamento,
   criarAgendamento,
   atualizarAgendamento,
-  deletarAgendamento
+  deletarAgendamento,
+  listarParams
 } from '../controllers/agendamentoController.js';
 
 import {listarUsers} from '../controllers/UsersController.js';
@@ -14,15 +15,15 @@ import {listarUsers} from '../controllers/UsersController.js';
 const router = express.Router();
 
 
-
+// localhost:3000/api/agendamentos/listaId/id
 
 // router.get('/users', listarUsers);
-
-router.get('/listaag', listarAgendamentos);
+router.get('/listarParams', listarParams);
+router.get('/listarag', listarAgendamentos);
 router.get('/listaId/:id', obterAgendamento);
 router.post('/createAg', criarAgendamento);
 router.put('/:id', atualizarAgendamento);
-router.delete('/:id', deletarAgendamento);
+router.delete('/deleteAg/:id', deletarAgendamento);
 
 // Rota inválida dentro de /agendamento/*
 router.use((req, res) => {

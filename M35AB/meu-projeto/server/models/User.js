@@ -2,21 +2,10 @@
 import mongoose from 'mongoose';
 
 const agendamentoSchema = new mongoose.Schema({
-  data: {
-    type: String, 
-    required:true},
-  hora:{ 
-    type: String, 
-    required:true},
-  usuarioId: {
-    type: String, 
-    required:true, 
-    unique:true
-  },
-  status: {
-    type:String, 
-    required:true
-  }
+  nome: {type: String, required:true},
+  tipo:{ type: String, required:true},
+  email: {type:String, required:true, unique:true},
+  end: {type: String, required:true}
 });
 
 export default mongoose.model('Agendamento', agendamentoSchema);
@@ -76,8 +65,7 @@ Subdocumentos (aninhados)
 endereco: {
   rua: String,
   cidade: String,
-  estado: String,
-  numero:Number
+  estado: String
 }
 
 Array de valores
