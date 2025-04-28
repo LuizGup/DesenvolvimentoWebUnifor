@@ -5,13 +5,13 @@ import 'bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css'; 
 
 // Array estático que simula dados de agendamentos
-export let agendamentos = [
-    { id: 1, data: '2023-11-10', hora: '14:00', status: 'ativo', usuarioId: 10 },
-    { id: 2, data: '2023-11-12', hora: '09:00', status: 'concluido', usuarioId: 11 },
-    { id: 3, data: '2023-11-15', hora: '16:30', status: 'ativo', usuarioId: 12 },
-    { id: 4, data: '2023-12-20', hora: '16:46', status: 'ativo', usuarioId: 13 },
+// export let agendamentos = [
+//     { id: 1, data: '2023-11-10', hora: '14:00', status: 'ativo', usuarioId: 10 },
+//     { id: 2, data: '2023-11-12', hora: '09:00', status: 'concluido', usuarioId: 11 },
+//     { id: 3, data: '2023-11-15', hora: '16:30', status: 'ativo', usuarioId: 12 },
+//     { id: 4, data: '2023-12-20', hora: '16:46', status: 'ativo', usuarioId: 13 },
 
-  ];
+//   ];
   
   export function initAgendamentos() {
     const main = document.getElementById('conteudoPrincipal');
@@ -60,39 +60,83 @@ export let agendamentos = [
     listarAgendamentos();
 
   }
-  
-  function listarAgendamentos() {
+
+  const API_BASE = 'http://localhost:3000'; // Ajuste se necessário
+
+
+async function listarAgendamentos() {
+  try {
+    const resp = await fetch(`${API_BASE}/api/agendamentos/listarAg`);
+    if (!resp.ok) {
+      throw new Error(`Erro ao listar agendamentos: ${resp.status}`);
+    }
+
+    const agendamentos = await resp.json();
+
+    console.log(agendamentos)
     const listaDiv = document.getElementById('listaAgendamentos');
-    listaDiv.innerHTML = '';
-  
+    listaDiv.innerHTML = ''; // limpa antes
+
     agendamentos.forEach((ag) => {
+      // Card de exemplo (poderia ser um <tr> de tabela, etc.)
       const card = document.createElement('div');
       card.classList.add('card', 'mb-2');
       card.innerHTML = `
         <div class="card-body">
-          <h5 class="card-title">Agendamento #${ag.id}</h5>
+          <h5 class="card-title">Agendamento #${ag._id}</h5>
           <p class="card-text">
-            <strong>Data:</strong> ${ag.data}<br/>
-            <strong>Hora:</strong> ${ag.hora}<br/>
-            <strong>Status:</strong> ${ag.status}<br/>
-            <strong>Usuário ID:</strong> ${ag.usuarioId}
+            Data: <strong>${ag.data}</strong><br/>
+            Hora: <strong>${ag.hora}</strong><br/>
+            Status: <strong>${ag.status}</strong><br/>
+            ${ag.usuarioId 
+              ? `Usuário: <strong>${ag.name}</strong> (ID: ${ag.usuarioId})`
+              : 'Usuário não encontrado'
+            }
           </p>
-          
-          <a class="btn btn-warning btn-sm" id="btnEditar-${ag.id}" href="#titleAgendamento">Editar</a>
-          <button class="btn btn-danger btn-sm" id="btnExcluir-${ag.id}">Excluir</button>
+          <button class="btn btn-warning btn-sm" onclick="editarAgendamento(${ag.id})">Editar</button>
+          <button class="btn btn-danger btn-sm" onclick="excluirAgendamento(${ag.id})">Excluir</button>
         </div>
       `;
       listaDiv.appendChild(card);
-  
-      // Ações
-      card.querySelector(`#btnEditar-${ag.id}`).addEventListener('click', () => {
-        carregarParaEdicao(ag.id);
-      });
-      card.querySelector(`#btnExcluir-${ag.id}`).addEventListener('click', () => {
-        excluirAgendamento(ag.id);
-      });
     });
+  } catch (error) {
+    console.error('Erro ao listar agendamentos:', error);
   }
+}
+
+  
+  // function listarAgendamentos() {
+  //   const listaDiv = document.getElementById('listaAgendamentos');
+  //   listaDiv.innerHTML = '';
+  
+  //   agendamentos.forEach((ag) => {
+  //     const card = document.createElement('div');
+  //     card.classList.add('card', 'mb-2');
+  //     card.innerHTML = `
+  //       <div class="card-body">
+  //         <h5 class="card-title">Agendamento #${ag.id}</h5>
+  //         <p class="card-text">
+  //           <strong>Data:</strong> ${ag.data}<br/>
+  //           <strong>Hora:</strong> ${ag.hora}<br/>
+  //           <strong>Status:</strong> ${ag.status}<br/>
+  //           <strong>Usuário ID:</strong> ${ag.usuarioId}
+  //         </p>
+          
+  //         <a class="btn btn-warning btn-sm" id="btnEditar-${ag.id}" href="#titleAgendamento">Editar</a>
+  //         <button class="btn btn-danger btn-sm" id="btnExcluir-${ag.id}">Excluir</button>
+  //       </div>
+  //     `;
+  //     listaDiv.appendChild(card);
+  
+  //     // Ações
+  //     card.querySelector(`#btnEditar-${ag.id}`).addEventListener('click', () => {
+  //       carregarParaEdicao(ag.id);
+  //     });
+  //     card.querySelector(`#btnExcluir-${ag.id}`).addEventListener('click', () => {
+  //       excluirAgendamento(ag.id);
+  //     });
+  //   });
+  // }
 
   function salvarAgendamento(event) {
     event.preventDefault();

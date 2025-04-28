@@ -16,13 +16,13 @@ const router = express.Router();
 
 
 
-// localhost:3000/api/agendamentos/createAg
+// localhost:3000/api/agendamentos/criarAg
 
 // router.get('/users', listarUsers);
 
-router.get('/listaag', listarAgendamentos);
+router.get('/listarAg', listarAgendamentos);
 router.get('/listaId/:id', obterAgendamento);
-router.post('/createAg', criarAgendamento);
+router.post('/criarAg', criarAgendamento);
 router.put('/:id', atualizarAgendamento);
 router.delete('/:id', deletarAgendamento);
 router.get('/listaquery', listarQuery);
