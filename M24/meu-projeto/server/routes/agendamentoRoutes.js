@@ -10,8 +10,6 @@ import {
   listarQuery
 } from '../controllers/agendamentoController.js';
 
-import {listarUsers} from '../controllers/UsersController.js';
- 
 const router = express.Router();
 
 
