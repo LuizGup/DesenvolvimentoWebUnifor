@@ -2,9 +2,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css'; 
+// import './style.css'
 
 //agendamentos.js
 import { initAgendamentos } from './agendamentos.js';
+import { initUser } from './usuarios.js';
+import {initProduto} from './produtos.js'
 
 // Exemplo de layout (bootstrap) no main.js
 const root = document.getElementById('app');
@@ -25,6 +28,7 @@ root.innerHTML = /*html*/`
       <li class="nav-item"><a class="nav-link" href="#" id="linkDashboard">Dashboard</a></li>
       <li class="nav-item"><a class="nav-link" href="#" id="linkAgendamentos">Agendamentos</a></li>
       <li class="nav-item"><a class="nav-link" href="#" id="linkUsuarios">Usuários</a></li>
+      <li class="nav-item"><a class="nav-link" href="#" id="linkProdutos">Produto</a></li>
     </ul>
   </div>
 </nav>
@@ -44,6 +48,7 @@ root.innerHTML = /*html*/`
 const linkDashboard = document.getElementById('linkDashboard');
 const linkAgendamentos = document.getElementById('linkAgendamentos');
 const linkUsuarios = document.getElementById('linkUsuarios');
+const linkProdutos = document.getElementById('linkProdutos');
 
 linkDashboard.addEventListener('click', (e) => {
   e.preventDefault();
@@ -58,8 +63,14 @@ linkAgendamentos.addEventListener('click', (e) => {
 
 linkUsuarios.addEventListener('click', (e) => {
   e.preventDefault();
-  carregarUsuarios();
+  initUser();
 });
+
+linkProdutos.addEventListener('click', (e) => {
+  e.preventDefault();
+  initProduto();
+});
+
 
 const data_dashboard = [
   {
@@ -152,6 +163,8 @@ const API_BASE = 'http://localhost:3000/api'; // Ajuste se necessário
 
 
 async function listarAgendamentos() {
+
+  
   try {
     const resp = await fetch(`${API_BASE}/agendamentos`);
     if (!resp.ok) {

@@ -13,7 +13,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 //   ];
   
-  export function initAgendamentos() {
+  export function initProduto() {
     const main = document.getElementById('conteudoPrincipal');
   
     // Injetamos um formulário acima da lista
