@@ -65,10 +65,10 @@ async function fazerLogin(e){
       document.getElementById("password").value = "";
       return;
     }
-    const users = await resp.json();
-    console.log(users)
-    if (users){
-      localStorage.setItem("token", users.token);
+    const resp_req = await resp.json();
+    console.log(resp_req)
+    if (resp_req){
+      localStorage.setItem("token", resp_req.token);
       window.location.href = "/dashboard";
     }
   }

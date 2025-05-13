@@ -134,7 +134,10 @@ async function listarUsuarios() {
         const resp = await fetch(`${API_BASE}/api/users/${userId}`, {
           method: "PUT",
           body: JSON.stringify({name, email, tipo, password:senha}),
-          headers: {"Content-type": "application/json; charset=UTF-8"}
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json; charset=UTF-8'
+          }
         })
         if (!resp.ok) {
           throw new Error(`Erro ao editar user: ${resp.status}`);
@@ -147,7 +150,10 @@ async function listarUsuarios() {
         const resp = await fetch(`${API_BASE}/api/users/criarUser`, {
           method: "POST",
           body: JSON.stringify(novo),
-          headers: {"Content-type": "application/json; charset=UTF-8"}
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            'Authorization': `Bearer ${token}`,
+          }
         })
         if (!resp.ok) {
           throw new Error(`Erro ao salvar user: ${resp.status}`);
