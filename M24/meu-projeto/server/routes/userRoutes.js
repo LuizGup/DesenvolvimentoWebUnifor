@@ -15,9 +15,9 @@ import {autenticarToken} from '../middlewares/authMiddleware.js';
 const router = express.Router();
 
 router.post('/login', login);
-router.get('/listarUser', autenticarToken, listarUsers);
+router.get('/listarUser', autenticarToken,  listarUsers);
 router.get('/listaId/:id', obterUser);
-router.post('/criarUser', criarUser);
+router.post('/criarUser', autenticarToken, criarUser);
 router.put('/:id', atualizarUser);
 router.delete('/:id', deletarUser);
 
