@@ -1,14 +1,14 @@
 // server/controllers/AgendamentoController.js
 import Agendamento from '../models/Agendamento.js';
 
-// const agendamentos = [
-//   { id: 1, data: '2023-11-10', hora: '14:00', status: 'ativo', usuarioId: 10 },
-//   { id: 2, data: '2023-11-12', hora: '09:00', status: 'concluido', usuarioId: 11 },
-//   { id: 3, data: '2023-11-15', hora: '16:30', status: 'ativo', usuarioId: 12 },
-// ];
+const agendamentos = [
+  { id: 1, data: '2023-11-10', hora: '14:00', status: 'ativo', usuarioId: 10 },
+  { id: 2, data: '2023-11-12', hora: '09:00', status: 'concluido', usuarioId: 11 },
+  { id: 3, data: '2023-11-15', hora: '16:30', status: 'ativo', usuarioId: 12 },
+];
 
 export const listarAgendamentos = async (req, res) => {
-  const agendamentos = await Agendamento.find();
+  // const agendamentos = await Agendamento.find();
   res.json(agendamentos);
 };
 

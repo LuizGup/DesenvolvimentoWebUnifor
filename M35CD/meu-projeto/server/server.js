@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
-import { connectDB} from './config/database.js';
+// import { connectDB} from './config/database.js';
 
 // Importando Rotas
 // import usuarioRoutes from './routes/usuarioRoutes.js';
@@ -33,7 +33,7 @@ app.use((req, res) => {
   });
 });
   
-connectDB();
+// connectDB();
 
 
 app.listen(process.env.PORT, () => {
