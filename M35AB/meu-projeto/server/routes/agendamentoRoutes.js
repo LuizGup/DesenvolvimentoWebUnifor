@@ -10,7 +10,7 @@ import {
   listarParams
 } from '../controllers/agendamentoController.js';
 
-import {listarUsers} from '../controllers/UsersController.js';
+// import {listarUsers} from '../controllers/UsersController.js';
  
 const router = express.Router();
 

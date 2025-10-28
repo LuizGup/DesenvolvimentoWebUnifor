@@ -12,10 +12,7 @@ import {
 
 const router = express.Router();
 
-
-
 // localhost:3000/api/agendamentos/criarAg
-
 // router.get('/users', listarUsers);
 
 router.get('/listarAg', listarAgendamentos);

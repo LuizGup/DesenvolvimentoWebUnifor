@@ -22,6 +22,7 @@ Slide 2 - Fluxo Básico do Node.js
         5. Envia resposta ao cliente
 
 
+
 Slide 3 - Introdução ao Express.js
 O que é Express?
 - Framework web para Node.js
@@ -36,3 +37,17 @@ Principais recursos:
 - Roteamento simplificado
 - Uso de middlewares
 - Integração com bancos de dados e templates
+
+
+MVC ->
+Usuário faz uma requisição (ex: acessa /usuarios ou envia um formulário).
+
+O Router identifica a rota e chama o Controller apropriado.
+
+O Controller usa o Model para buscar ou atualizar dados.
+
+O Controller envia os dados para a View.
+
+A View renderiza o conteúdo e devolve o HTML para o usuário.
+
+Usuário → Router → Controller → Model → Controller → View → Usuário

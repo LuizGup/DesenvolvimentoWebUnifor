@@ -23,6 +23,19 @@ export default mongoose.model('Agendamento', agendamentoSchema);
 
 
 
+// ORM — Object Relational Mapping
+
+// Função:
+// Conectar o mundo orientado a objetos (classes e objetos do código) ao mundo 
+// relacional (tabelas e colunas do banco SQL).
+
+// ODM — Object Document Mapping
+
+// Função:
+// Faz o mesmo que o ORM, mas para bancos de dados baseados em documentos, como o MongoDB.
+// Cada classe ou schema representa uma coleção (collection),
+// e cada objeto é um documento JSON.
+
 
 
 

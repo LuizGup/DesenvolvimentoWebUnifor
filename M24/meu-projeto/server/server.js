@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
-import { connectDB} from './config/database.js';
+// import { connectDB} from './config/database.js';
 
 // Importando Rotas
 // import usuarioRoutes from './routes/usuarioRoutes.js';
@@ -13,6 +13,17 @@ import userRoutes from './routes/userRoutes.js';
 dotenv.config();
 const app = express();
 app.use(cors());
+
+// const corsOptions = {
+//   origin: 'http://localhost:3000', // Allow only this origin
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed HTTP methods
+//   allowedHeaders: 'Content-Type,Authorization', // Allowed request headers
+//   credentials: true, // Allow sending cookies and authentication headers
+// };
+
+// app.use(cors(corsOptions)); // Apply CORS with specific options
+
+
 app.use(express.json());
 
 
@@ -34,7 +45,7 @@ app.use((req, res) => {
   });
 });
   
-connectDB();
+// connectDB();
 
 
 app.listen(process.env.PORT, () => {
