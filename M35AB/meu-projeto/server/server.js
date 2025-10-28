@@ -3,10 +3,10 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
  
-// import { connectDB} from './config/database.js';
+import { connectDB} from './config/database.js';
 
 // Importando Rotas
-// import usuarioRoutes from './routes/usuarioRoutes.js';
+import usuarioRoutes from './routes/usuarioRoutes.js';
 import agendamentoRoutes from './routes/agendamentoRoutes.js'; 
 
 dotenv.config();
@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 
 
   // Usar as rotas
-// app.use('/api/usuarios', usuarioRoutes);
+app.use('/api/usuarios', usuarioRoutes);
 app.use('/api/agendamentos', agendamentoRoutes);
 
 
@@ -34,7 +34,7 @@ app.use((req, res) => {
   });
 });
   
-// connectDB();
+connectDB();
 
 
 app.listen(process.env.PORT, () => {
