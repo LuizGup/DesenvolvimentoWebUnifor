@@ -4,7 +4,9 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export const connectDB = async () => {
+    console.log('Conectando ao MongoDB...');
   try {
+    console.log('Conectado ao MongoDB');
     await mongoose.connect(process.env.MONGO_URI);
     console.log('Conectado ao MongoDB');
   } catch (err) {
